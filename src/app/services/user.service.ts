@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { environment } from './../environments/environment';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, map, of, switchMap, tap, forkJoin } from 'rxjs';
+import { UserModel } from '../models/user.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,18 +13,24 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getUserList() {
-    console.log('getUserList');
-
-    // Agregar cabeceras de autenticación
     const headers = new HttpHeaders({
       // Authorization: 'Bearer tu_token_de_autenticacion',
-      'content-type': 'application/json',
+      'Content-type': 'application/json',
     });
 
-    // Agregar opciones de solicitud (request options)
-    const options = { headers: headers, withCredentials: true };
+    const options = { headers: headers, withCredentials: false };
 
-    return this.http.get(`${this.beUrl}/user`, options);
+    return this.http.get(`${this.beUrl}/user` /*, options*/);
+  }
+
+  getUser(id: string) {
+    const headers = new HttpHeaders({
+      'Content-type': 'application/json',
+    });
+
+    const options = { headers: headers, withCredentials: false };
+
+    return this.http.get(`${this.beUrl}/user/${id}` /*, options*/);
   }
 
   //   getcareer(dataout:any){
@@ -34,4 +41,29 @@ export class UserService {
   //     {headers }) //unncessary key-value
   //     .subscribe(data => dataout = data);
   // }
+
+  deleteUser(id: any) {
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+    });
+
+    const options = { headers: headers, withCredentials: false };
+
+    return this.http.delete(`${this.beUrl}/user/${id}`, options);
+  }
+
+  createUser(name: string, age: string) {
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+    });
+
+    const options = { headers: headers, withCredentials: false };
+
+    let body = new HttpParams();
+
+    body = body.set('name', name);
+    body = body.set('age', age);
+
+    return this.http.post(`${this.beUrl}/user`, body, options);
+  }
 }

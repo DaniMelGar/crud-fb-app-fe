@@ -1,0 +1,5 @@
+<div *ngIf="user$ | async as user" class="details-container">
+  <div class="div-details"><b>Id:</b> {{ id }}</div>
+  <div class="div-details"><b>Name:</b> {{ user.name }}</div>
+  <div class="div-details"><b>Age:</b> {{ user.age }}</div>
+</div>

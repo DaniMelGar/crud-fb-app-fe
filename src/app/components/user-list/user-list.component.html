@@ -1,1 +1,43 @@
+<div class="flex-container">
+  <h3>USER LIST</h3>
+</div>
 
+<!-- <app-user-list-table [userList]="userList$ | async"></app-user-list-table> -->
+
+<div *ngIf="userList$ | async as userList" style="padding: 100px">
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let user of userList"
+        appUserRowClickable
+        [id]="user.id"
+        style="cursor: pointer"
+      >
+        <td class="td-aligned">{{ user.id }}</td>
+        <td class="td-aligned">{{ user.name }}</td>
+        <td class="td-aligned">{{ user.age }}</td>
+        <td>
+          <button mat-icon-button (click)="edit(user.id)">
+            <mat-icon aria-label="edit an user">edit</mat-icon>
+          </button>
+        </td>
+        <td>
+          <button mat-icon-button (click)="delete(user.id)">
+            <mat-icon aria-label="delete an user">delete</mat-icon>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-create-new-user-form></app-create-new-user-form>
