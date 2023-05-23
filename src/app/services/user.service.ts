@@ -33,15 +33,6 @@ export class UserService {
     return this.http.get(`${this.beUrl}/user/${id}` /*, options*/);
   }
 
-  //   getcareer(dataout:any){
-  //     const headers = new HttpHeaders().append('Content-Type', 'application/json').append('Authorization','Bearer'+' '+GlobalService.authtoken);
-  //     console.log(headers);
-  //     return this.http.post('http://localhost:3000/employee/getcareer',
-  //     null,
-  //     {headers }) //unncessary key-value
-  //     .subscribe(data => dataout = data);
-  // }
-
   deleteUser(id: any) {
     const headers = new HttpHeaders({
       'content-type': 'application/json',
@@ -66,4 +57,28 @@ export class UserService {
 
     return this.http.post(`${this.beUrl}/user`, body, options);
   }
+
+  editUser(id: string, name: string, age: string) {
+    const headers = new HttpHeaders({
+      'content-type': 'application/json',
+    });
+
+    const options = { headers: headers, withCredentials: false };
+
+    let body = new HttpParams();
+
+    body = body.set('name', name);
+    body = body.set('age', age);
+
+    return this.http.put(`${this.beUrl}/user/${id}`, body, options);
+  }
 }
+
+//   getcareer(dataout:any){
+//     const headers = new HttpHeaders().append('Content-Type', 'application/json').append('Authorization','Bearer'+' '+GlobalService.authtoken);
+//     console.log(headers);
+//     return this.http.post('http://localhost:3000/employee/getcareer',
+//     null,
+//     {headers }) //unncessary key-value
+//     .subscribe(data => dataout = data);
+// }

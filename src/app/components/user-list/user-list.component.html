@@ -43,12 +43,16 @@
         <td class="td-aligned">{{ user.age }}</td>
         <td>
           <button mat-icon-button (click)="edit(user.id)">
-            <mat-icon aria-label="edit an user">edit</mat-icon>
+            <mat-icon aria-label="edit an user" [ngStyle]="{ color: '#0d6efd' }"
+              >edit</mat-icon
+            >
           </button>
         </td>
         <td>
           <button mat-icon-button (click)="delete(user.id)">
-            <mat-icon aria-label="delete an user">delete</mat-icon>
+            <mat-icon aria-label="delete an user" [ngStyle]="{ color: 'red' }"
+              >delete</mat-icon
+            >
           </button>
         </td>
       </tr>

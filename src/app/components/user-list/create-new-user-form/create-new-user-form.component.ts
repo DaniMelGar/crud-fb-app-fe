@@ -1,6 +1,7 @@
 import { UserService } from './../../../services/user.service';
 import { Component } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-new-user-form',
@@ -8,7 +9,11 @@ import { Validators, FormBuilder } from '@angular/forms';
   styleUrls: ['./create-new-user-form.component.css'],
 })
 export class CreateNewUserFormComponent {
-  constructor(private fb: FormBuilder, private userService: UserService) {}
+  constructor(
+    private fb: FormBuilder,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   name: string = '';
   age: string = '';
@@ -29,5 +34,6 @@ export class CreateNewUserFormComponent {
     this.name = this.nameFormControl!.value!;
     this.age = this.ageFormControl!.value!;
     this.userService.createUser(this.name, this.age).subscribe(() => {});
+    this.router.navigate(['/user-list']);
   }
 }

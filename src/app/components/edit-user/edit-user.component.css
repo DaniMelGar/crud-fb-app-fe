@@ -1,0 +1,33 @@
+.details-container{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: center;
+  margin: 5rem;
+}
+
+.div-details{
+  font-size: 40px;
+  text-align: center;
+  margin: 20px;
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+.form-container{
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+  padding-top: 50px;
+  justify-content: center
+}
+
+.input-container{
+  margin-bottom: 30px;
+}

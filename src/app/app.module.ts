@@ -14,6 +14,7 @@ import { CreateNewUserFormComponent } from './components/user-list/create-new-us
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserRowClickableDirective } from './directives/user-row-clickable.directive';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
     CreateNewUserFormComponent,
     UserRowClickableDirective,
     UserDetailsComponent,
+    EditUserComponent,
   ],
   imports: [
     BrowserModule,
