@@ -16,13 +16,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr
-        *ngFor="let user of userList"
-        appUserRowClickable
-        [id]="user.id"
-        style="cursor: pointer"
-      >
-        <td class="td-aligned">{{ user.id }}</td>
+      <tr *ngFor="let user of userList">
+        <td
+          class="td-aligned"
+          appUserRowClickable
+          [id]="user.id"
+          style="cursor: pointer"
+        >
+          {{ user.id }}
+        </td>
         <td class="td-aligned">{{ user.name }}</td>
         <td class="td-aligned">{{ user.age }}</td>
         <td>
