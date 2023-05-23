@@ -34,6 +34,7 @@ export class CreateNewUserFormComponent {
     this.name = this.nameFormControl!.value!;
     this.age = this.ageFormControl!.value!;
     this.userService.createUser(this.name, this.age).subscribe(() => {});
-    this.router.navigate(['/user-list']);
+    //TODO: REFRESH THE PAGE IF DOESNT APPEAR THE USER
+    //this.router.navigate(['/user-list']);
   }
 }
