@@ -1,4 +1,4 @@
-.form-container{
+.flex-container{
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -6,8 +6,12 @@
   margin-top: 5rem;
 }
 
-.input-form{
-  width: 20%;
+.form-container{
+  display: flex;
+  flex-direction: row;
+  padding-left: 100px;
+  padding-top: 50px;
+  justify-content: center
 }
 
 .input-container{

@@ -2,9 +2,9 @@
   display: flex;
   flex-direction: row;
   padding: 1rem;
-  gap: 6rem;
+  gap: 3rem;
   justify-content: center;
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .td-aligned{

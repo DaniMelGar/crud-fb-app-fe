@@ -1,10 +1,24 @@
-<div class="flex-container">
+<div style="text-align: center; padding: 50px">
   <h3>USER LIST</h3>
 </div>
 
 <!-- <app-user-list-table [userList]="userList$ | async"></app-user-list-table> -->
 
-<div *ngIf="userList$ | async as userList" style="padding: 100px">
+<div
+  style="
+    padding-left: 100px;
+    padding-bottom: 20px;
+    color: #0d6efd;
+    font-size: 20px;
+  "
+>
+  <b>Click on the id to see details</b>
+</div>
+
+<div
+  *ngIf="userList$ | async as userList"
+  style="padding-left: 100px; padding-right: 100px; padding-top: 20px"
+>
   <table class="table">
     <thead class="thead-dark">
       <tr>

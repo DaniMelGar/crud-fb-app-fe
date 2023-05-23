@@ -1,54 +1,59 @@
-<div class="form-container">
+<div class="flex-container">
   <h3 style="text-align: center">CREATE NEW USER</h3>
 
-  <form [formGroup]="fg" (ngSubmit)="onFormSubmit()" style="padding: 100px">
-    <div class="input-container">
-      <label for="name">Name: </label>
-      <input
-        type="text"
-        id="name"
-        class="form-control input-form"
-        formControlName="nameFormControl"
-        required
-      />
-      <div
-        *ngIf="
-          nameFormControl?.invalid &&
-          (nameFormControl?.dirty || nameFormControl?.touched)
-        "
-        class="error"
-      >
-        <div *ngIf="nameFormControl?.errors?.['required']">
-          Name is required
+  <form class="form-container" [formGroup]="fg" (ngSubmit)="onFormSubmit()">
+    <div>
+      <div class="input-container">
+        <label for="name">Name: </label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          formControlName="nameFormControl"
+          required
+        />
+        <div
+          *ngIf="
+            nameFormControl?.invalid &&
+            (nameFormControl?.dirty || nameFormControl?.touched)
+          "
+          class="error"
+        >
+          <div *ngIf="nameFormControl?.errors?.['required']">
+            Name is required
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="input-container">
-      <label for="age">Age: </label>
-      <input
-        type="number"
-        id="age"
-        class="form-control input-form"
-        formControlName="ageFormControl"
-        required
-      />
-      <div
-        *ngIf="
-          ageFormControl?.invalid &&
-          (ageFormControl?.dirty || ageFormControl?.touched)
-        "
-        class="error"
-      >
-        <div *ngIf="ageFormControl?.errors?.['required']">Age is required</div>
+      <div class="input-container">
+        <label for="age">Age: </label>
+        <input
+          type="number"
+          id="age"
+          class="form-control"
+          style="width: 30%"
+          formControlName="ageFormControl"
+          required
+        />
+        <div
+          *ngIf="
+            ageFormControl?.invalid &&
+            (ageFormControl?.dirty || ageFormControl?.touched)
+          "
+          class="error"
+        >
+          <div *ngIf="ageFormControl?.errors?.['required']">
+            Age is required
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div>
-      <p>Complete the form correctly to enable the button</p>
-      <button type="submit" [disabled]="!fg.valid" class="btn btn-primary">
-        Create
-      </button>
+      <div>
+        <p>Complete the form correctly to enable the button</p>
+        <button type="submit" [disabled]="!fg.valid" class="btn btn-primary">
+          Create
+        </button>
+      </div>
     </div>
   </form>
 </div>
